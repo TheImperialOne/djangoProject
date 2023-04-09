@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Home</li>
+{% endblock breadcrumb%}
+
+{% block content %}
+<div class="container-fluid">
+  <div id="ui-view" style="opacity: 1;"><div class="animated fadeIn">
+    <div class="row">
+    <div class="col-12">
+      <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Main Info
+      </div>
+      <div class="card-body">
+        <div class="jumbotron bg-white">
+          <h1 class="display-4">Konichiwa, administrator! 🗿</h1>
+          <p class="lead">Welcome to the Project Management System. UwU </p>
+          <hr class="my-4">
+           {% if user.is_authenticated %}
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="dashboard/" role="button">Go to Dashboard</a>
+          </p>
+          {% endif %}
+          {% if not user.is_authenticated %}
+           <p class="lead">
+            <a class="btn btn-primary btn-lg" href="" role="button">Register</a>
+          </p>
+          <a href="{% url 'core:login' %}">Click here if you are already registered</a>
+          {% endif %}
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
